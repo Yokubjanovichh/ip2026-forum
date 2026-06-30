@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<!-- Desktop-only (klient talabi). Adaptiv = keyingi bosqich. -->
+<meta name="viewport" content="width=1200">
+<title>Интеллектуальное предприятие 2026 — приглашение</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&family=Onest:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#06070e; --panel:#0b0d1a; --ink:#ffffff; --muted:#9aa3bd; --dim:#6b melt;
+    --muted2:#7e87a3; --blue:#3d7bff; --violet:#7b3fe4; --red:#ff3b5c; --line:rgba(255,255,255,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{background:var(--bg);color:var(--ink);font-family:"Onest",sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;}
+  a{text-decoration:none;color:inherit;}
+  ::selection{background:rgba(61,123,255,.35);}
+
+  /* global cosmic backdrop */
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(1.4px 1.4px at 12% 8%, rgba(255,255,255,.8), transparent),
+      radial-gradient(1.2px 1.2px at 27% 22%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1.5px 1.5px at 63% 12%, rgba(255,255,255,.7), transparent),
+      radial-gradient(1.1px 1.1px at 84% 26%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1.3px 1.3px at 9% 54%, rgba(255,255,255,.45), transparent),
+      radial-gradient(1.2px 1.2px at 78% 64%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1.4px 1.4px at 40% 84%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1.1px 1.1px at 92% 92%, rgba(255,255,255,.4), transparent);
+    background-attachment:fixed;opacity:.5;}
+
+  .shell{position:relative;z-index:1;max-width:1080px;margin:0 auto;}
+  .wrap{max-width:920px;margin:0 auto;padding-left:56px;padding-right:56px;}
+
+  /* ============ HERO ============ */
+  .hero{position:relative;min-height:96vh;overflow:hidden;display:flex;flex-direction:column;}
+  .layer{position:absolute;inset:0;pointer-events:none;}
+  .nebula{background:
+      radial-gradient(60% 45% at 50% 28%, rgba(61,123,255,.32), transparent 70%),
+      radial-gradient(52% 42% at 64% 42%, rgba(123,63,228,.24), transparent 72%),
+      radial-gradient(46% 40% at 36% 48%, rgba(255,59,92,.17), transparent 70%);
+    filter:blur(8px);}
+  .ai-band{top:auto;height:60%;bottom:0;
+    background:url('https://yokubjanovichh.github.io/ip2026-email-test/img/hero.jpg') center 30%/cover no-repeat;
+    -webkit-mask-image:linear-gradient(to bottom,transparent,#000 55%,#000 86%,transparent);
+            mask-image:linear-gradient(to bottom,transparent,#000 55%,#000 86%,transparent);
+    opacity:.4;filter:saturate(1.15);mix-blend-mode:screen;}
+  .grain{opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .vignette{box-shadow:inset 0 0 220px 70px rgba(0,0,0,.7);}
+
+  .top{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:30px 56px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{height:42px;}
+  .brand .bt{font-family:"Unbounded";font-size:11px;line-height:1.25;letter-spacing:.04em;text-transform:uppercase;color:#cbd3e8;font-weight:400;}
+  .brand .bt b{font-weight:600;color:#fff;}
+  .top .where{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    border:1px solid var(--line);border-radius:100px;padding:8px 16px;backdrop-filter:blur(6px);}
+
+  .hero-c{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px 24px 72px;}
+  .kicker{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#c5cce0;border:1px solid var(--line);border-radius:100px;padding:9px 18px;background:rgba(255,255,255,.04);backdrop-filter:blur(8px);}
+  .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 10px 2px rgba(255,59,92,.8);}
+  h1{font-family:"Unbounded";font-weight:300;font-size:clamp(38px,6.2vw,80px);line-height:1.02;letter-spacing:-.02em;max-width:15ch;margin-top:32px;}
+  h1 .yr{font-weight:500;background:linear-gradient(100deg,#5b94ff 10%,#9b6bff 50%,#ff5b76 95%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero-sub{font-size:clamp(15px,1.5vw,18px);color:var(--muted);line-height:1.6;max-width:44ch;margin:26px auto 0;}
+  .cta-row{margin-top:40px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:center;}
+  .btn{font-family:"Onest";font-size:15.5px;font-weight:600;padding:16px 32px;border-radius:100px;display:inline-flex;align-items:center;gap:10px;transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer;}
+  .btn-primary{color:#fff;background:linear-gradient(100deg,var(--blue),var(--violet) 55%,var(--red));box-shadow:0 12px 40px -8px rgba(61,123,255,.6),0 6px 20px -6px rgba(255,59,92,.45);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 52px -8px rgba(61,123,255,.8),0 8px 26px -6px rgba(255,59,92,.6);}
+  .btn-primary .arrow{transition:transform .25s;}
+  .btn-primary:hover .arrow{transform:translateX(4px);}
+  .btn-ghost{color:#dfe5f4;border:1px solid var(--line);background:rgba(255,255,255,.03);backdrop-filter:blur(6px);}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);}
+  .hmeta{margin-top:44px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;font-size:13.5px;color:var(--muted2);}
+  .hmeta b{color:#cfd6ea;font-weight:500;}
+  .hmeta svg{vertical-align:-2.5px;margin-right:7px;stroke:var(--muted2);}
+  .hmeta .sep{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.25);}
+
+  /* ============ SECTIONS ============ */
+  section{position:relative;z-index:1;padding:52px 0;}
+  .seclabel{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:22px;}
+  .seclabel .ln{width:30px;height:1px;background:currentColor;opacity:.5;}
+  .c-blue{color:#6f9bff;} .c-red{color:#ff6b84;}
+  h2{font-family:"Unbounded";font-weight:300;font-size:clamp(26px,3.4vw,42px);line-height:1.1;letter-spacing:-.015em;}
+  .lead{font-size:clamp(16px,1.7vw,19px);line-height:1.75;color:#c4cbe0;font-weight:300;}
+  .lead b{color:#fff;font-weight:600;}
+  .lead-xl{font-size:clamp(19px,2.3vw,27px);line-height:1.5;font-weight:300;color:#e8ecf7;letter-spacing:-.01em;}
+  .lead-xl b{font-weight:500;background:linear-gradient(100deg,#6f9bff,#ff6b84);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  p.body{font-size:15.5px;line-height:1.75;color:var(--muted);font-weight:300;margin-top:18px;}
+
+  /* topic list (О чём поговорим) */
+  .topic{display:grid;grid-template-columns:84px 1fr;gap:8px;padding:30px 0;border-top:1px solid var(--line);transition:padding-left .3s;}
+  .topic:hover{padding-left:8px;}
+  .topic:last-child{border-bottom:1px solid var(--line);}
+  .topic .n{font-family:"Unbounded";font-weight:300;font-size:30px;background:linear-gradient(160deg,#6f9bff,#ff6b84);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .topic h3{font-family:"Onest";font-weight:600;font-size:19px;color:#fff;line-height:1.3;}
+  .topic p{font-size:14.5px;line-height:1.65;color:var(--muted);font-weight:300;margin-top:8px;max-width:62ch;}
+
+  /* award panel */
+  .panel{border:1px solid var(--line);border-radius:22px;padding:38px 40px;background:linear-gradient(180deg,rgba(123,63,228,.10),rgba(11,13,26,.4));position:relative;overflow:hidden;}
+  .panel::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(61,123,255,.3),transparent 70%);filter:blur(20px);}
+
+  /* tags (Главные темы) */
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;}
+  .tag{font-size:14px;font-weight:400;color:#cdd5ea;border:1px solid var(--line);border-radius:100px;padding:11px 18px;background:rgba(255,255,255,.025);transition:.25s;}
+  .tag:hover{border-color:rgba(111,155,255,.5);background:rgba(61,123,255,.10);color:#fff;}
+  .tag .b{color:#6f9bff;margin-right:7px;}
+
+  /* stat 95% */
+  .stat{text-align:center;}
+  .stat .big{font-family:"Unbounded";font-weight:300;font-size:clamp(96px,16vw,190px);line-height:.9;background:linear-gradient(120deg,#5b94ff,#9b6bff 50%,#ff5b76);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.03em;}
+  .stat .cap{font-size:clamp(16px,1.8vw,20px);line-height:1.6;color:#cdd5ea;max-width:60ch;margin:14px auto 0;font-weight:300;}
+  .stat .rt{display:inline-flex;align-items:center;gap:10px;margin-top:30px;border:1px solid rgba(111,155,255,.4);border-radius:100px;padding:13px 26px;font-size:15px;font-weight:500;color:#fff;background:rgba(61,123,255,.08);}
+
+  /* audience grid */
+  .aud{display:grid;grid-template-columns:1fr 1fr;gap:2px 40px;margin-top:24px;}
+  .aud .it{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);}
+  .aud .it svg{flex:0 0 20px;margin-top:2px;stroke:#6f9bff;}
+  .aud .it:nth-child(even) svg{stroke:#ff6b84;}
+  .aud .it:last-child{grid-column:1 / -1;}
+  .aud .it span{font-size:15.5px;color:#d6dcec;font-weight:300;line-height:1.4;}
+
+  /* calendar */
+  .calwrap{border:1px solid var(--line);border-radius:24px;padding:8px;background:linear-gradient(180deg,rgba(20,22,40,.6),rgba(8,9,18,.6));display:grid;grid-template-columns:300px 1fr;gap:8px;overflow:hidden;}
+  .calcard{background:rgba(8,9,18,.7);border-radius:18px;padding:22px;}
+  .calcard .mon{text-align:center;font-family:"Unbounded";font-weight:400;font-size:16px;margin-bottom:14px;}
+  .cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center;}
+  .cgrid .dow{font-size:10.5px;color:var(--muted2);padding:4px 0;letter-spacing:.04em;}
+  .cgrid .d{font-size:13px;color:#c4cbe0;padding:8px 0;border-radius:9px;font-weight:300;}
+  .cgrid .we{color:#ff6b84;}
+  .cgrid .mark{background:linear-gradient(135deg,var(--blue),var(--red));color:#fff;font-weight:600;box-shadow:0 6px 18px -4px rgba(61,123,255,.7);}
+  .calside{padding:24px 24px 24px 16px;display:flex;flex-direction:column;justify-content:center;}
+  .calside h3{font-family:"Unbounded";font-weight:300;font-size:24px;line-height:1.2;margin-bottom:8px;}
+  .calside p{font-size:14px;color:var(--muted);font-weight:300;margin-bottom:18px;line-height:1.6;}
+  .calbtns{display:flex;flex-wrap:wrap;gap:9px;}
+  .calbtn{font-size:13px;font-weight:500;color:#dfe5f4;border:1px solid var(--line);border-radius:10px;padding:11px 15px;display:inline-flex;align-items:center;gap:8px;transition:.25s;}
+  .calbtn:hover{border-color:rgba(111,155,255,.5);background:rgba(61,123,255,.1);}
+  .calbtn svg{stroke:#9aa3bd;}
+  .calbtn.ics{background:#fff;color:#0b0d1a;border-color:#fff;}
+  .calbtn.ics svg{stroke:#0b0d1a;}
+
+  /* final CTA */
+  .final{text-align:center;border-radius:28px;padding:64px 40px;position:relative;overflow:hidden;border:1px solid var(--line);
+    background:radial-gradient(80% 120% at 50% 0%, rgba(61,123,255,.22), transparent 60%), radial-gradient(70% 120% at 80% 100%, rgba(255,59,92,.18), transparent 60%), rgba(10,11,22,.6);}
+  .final h2{font-size:clamp(28px,4vw,46px);}
+  .final p{font-size:16px;color:#cdd5ea;max-width:52ch;margin:16px auto 0;font-weight:300;line-height:1.65;}
+
+  /* subscribe + contacts */
+  .sub2{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0;}
+  .chip{font-size:14px;font-weight:600;color:#cdd5ea;border:1px solid var(--line);border-radius:100px;padding:11px 22px;transition:.25s;}
+  .chip:hover{border-color:rgba(111,155,255,.5);color:#fff;}
+  .contacts{display:flex;gap:28px;flex-wrap:wrap;font-size:14.5px;color:var(--muted);}
+  .contacts a{color:#cfd6ea;font-weight:500;}
+
+  /* footer */
+  footer{position:relative;z-index:1;text-align:center;padding:46px 56px 60px;border-top:1px solid var(--line);margin-top:30px;}
+  .fbrand{display:inline-flex;align-items:center;gap:12px;margin-bottom:18px;}
+  .fbrand img{height:38px;}
+  .fbrand .bt{font-family:"Unbounded";font-size:13px;letter-spacing:.03em;color:#cbd3e8;font-weight:400;}
+  .fbrand .bt b{color:#fff;font-weight:600;}
+  footer p{font-size:12.5px;color:var(--muted2);line-height:1.7;}
+  footer a{color:#8fa6d8;}
+
+  /* reveal */
+  .rev{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);}
+  .rev.in{opacity:1;transform:none;}
+  .hrise{opacity:0;transform:translateY(22px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;}
+  .d1{animation-delay:.05s}.d2{animation-delay:.18s}.d3{animation-delay:.32s}.d4{animation-delay:.46s}.d5{animation-delay:.60s}.d6{animation-delay:.74s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  /* ===== RESPONSIVE VAQTINCHA O'CHIRILGAN =====
+     Klient faqat desktop versiyani so'ragan. Mobil/adaptiv — keyingi (alohida) bosqich.
+     Yoqish uchun: quyidagi blokni kommentdan chiqaring + yuqoridagi viewport'ni
+     width=device-width, initial-scale=1 ga qaytaring.
+
+  @media (max-width:720px){
+    .wrap{padding:0 26px;} .top{padding:22px 24px;} .top .where{display:none;}
+    section{padding:56px 0;} .topic{grid-template-columns:54px 1fr;}
+    .aud{grid-template-columns:1fr;} .calwrap{grid-template-columns:1fr;}
+    .sub2{flex-direction:column;align-items:flex-start;}
+  }
+  ===== / RESPONSIVE ===== */
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="layer nebula"></div>
+  <div class="layer ai-band"></div>
+  <div class="layer grain"></div>
+  <div class="layer vignette"></div>
+  <div class="top">
+    <div class="brand hrise d1">
+      <img src="https://yokubjanovichh.github.io/ip2026-email-test/img/logo-mark.png" alt="Интеллектуальное предприятие 2026">
+      <span class="bt">Интеллектуальное<br>предприятие <b>2026</b></span>
+    </div>
+    <span class="where hrise d1">Москва · 14.10.2026</span>
+  </div>
+  <div class="hero-c">
+    <span class="kicker hrise d2"><span class="dot"></span> Форум «Интеллектуальное предприятие»</span>
+    <h1 class="hrise d3">Интеллектуальное предприятие <span class="yr">2026</span></h1>
+    <p class="hero-sub hrise d4">Обсудите вместе с нами применение искусственного интеллекта в бизнес-моделях, процессах и операциях</p>
+    <div class="cta-row hrise d5">
+      <a class="btn btn-primary" href="#reg">Зарегистрироваться <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#cal">Добавить в календарь</a>
+    </div>
+    <div class="hmeta hrise d6">
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg><b>14 октября 2026</b></span>
+      <span class="sep"></span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/></svg><b>Москва, отель «Звёзды Арбата»</b></span>
+      <span class="sep"></span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="13" height="12" rx="2.2"/><path d="m15.5 10 6-3.5v11l-6-3.5"/></svg><b>Офлайн + видеозапись</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+
+  <!-- ===================== ВВЕДЕНИЕ ===================== -->
+  <section class="wrap">
+    <p class="lead-xl rev">Приглашаем Вас на Форум <b>«Интеллектуальное предприятие&nbsp;— 2026»</b>, посвящённый практикам использования искусственного интеллекта в&nbsp;бизнесе.</p>
+    <p class="body rev">Бизнес ждёт от ИИ-проектов реальных результатов&nbsp;— заметных, измеримых, с&nbsp;быстрой и&nbsp;уверенной окупаемостью инвестиций. О&nbsp;том, как этого добиться, мы поговорим на «Интеллектуальном предприятии».</p>
+    <p class="body rev">Присоединяйтесь к&nbsp;обсуждению актуальных тенденций и&nbsp;перспективных подходов, новейших методологических наработок и&nbsp;инструментов, горячих кейсов и&nbsp;успешных практик, в&nbsp;которых создание и&nbsp;внедрение ИИ-компонентов сыграло решающую роль.</p>
+  </section>
+
+  <!-- ===================== О ЧЁМ ПОГОВОРИМ ===================== -->
+  <section class="wrap">
+    <div class="seclabel c-blue rev"><span class="ln"></span> О чём поговорим подробно</div>
+    <div class="topic rev"><div class="n">01</div><div><h3>Управление бизнесом в эпоху ИИ</h3><p>Как заставить бизнес-руководителей поверить в ИИ? Барьеры на пути от технологий к результату.</p></div></div>
+    <div class="topic rev"><div class="n">02</div><div><h3>ИИ-агенты — вместо человека или вместе с человеком?</h3><p>Просто быстрее или совсем по-другому?</p></div></div>
+    <div class="topic rev"><div class="n">03</div><div><h3>Интеллектуальные корпоративные системы</h3><p>Как ERP, MES, CRM и прочие корпоративные системы становятся интеллектуальными и каково здесь место ИИ-помощников.</p></div></div>
+    <div class="topic rev"><div class="n">04</div><div><h3>Генеративный ИИ в масштабах предприятия</h3><p>Как сделать генеративный ИИ полноценным активом компании и перейти от экспериментов и исследований к продукту в масштабах предприятия?</p></div></div>
+    <div class="topic rev"><div class="n">05</div><div><h3>Подготовка специалистов</h3><p>Как готовить специалистов для эффективной работы с ИИ?</p></div></div>
+  </section>
+
+  <!-- ===================== DATA AWARD ===================== -->
+  <section class="wrap">
+    <div class="panel rev">
+      <div class="seclabel c-red" style="margin-bottom:14px"><span class="ln"></span> Data Award 2026</div>
+      <p class="lead">В центре особого внимания будут проекты, представленные на премию <b>Data Award 2026</b>. Самые резонансные кейсы обязательно найдут место в программе форума. Вы получите уникальную возможность пообщаться с выдающимися персонами в области data-driven, проанализировать их опыт и изучить «кухню» проектов.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ГЛАВНЫЕ ТЕМЫ ===================== -->
+  <section class="wrap">
+    <div class="seclabel c-blue rev"><span class="ln"></span> Главные темы и направления форума</div>
+    <h2 class="rev">Десять направлений,<br>которые определят повестку</h2>
+    <div class="tags rev">
+      <span class="tag"><span class="b">01</span>Преодоление барьеров на пути от технологий к результатам</span>
+      <span class="tag"><span class="b">02</span>Встраивание ИИ в бизнес-модели, процессы и операции</span>
+      <span class="tag"><span class="b">03</span>ИИ в «традиционных» бизнес-решениях</span>
+      <span class="tag"><span class="b">04</span>ИИ в маркетинге, продажах и HR: гиперперсонализация и не только</span>
+      <span class="tag"><span class="b">05</span>«Умный» RPA и интеллектуальные помощники</span>
+      <span class="tag"><span class="b">06</span>Место ИИ-агентов в архитектуре предприятия</span>
+      <span class="tag"><span class="b">07</span>ИИ-конвейер: как поставить на поток внедрение ИИ-решений</span>
+      <span class="tag"><span class="b">08</span>Интеграция ИИ в производственные системы</span>
+      <span class="tag"><span class="b">09</span>Как ИИ меняет корпоративную культуру</span>
+      <span class="tag"><span class="b">10</span>Риски ИИ и юридические «подводные камни»</span>
+    </div>
+  </section>
+
+  <!-- ===================== 95% КРУГЛЫЙ СТОЛ ===================== -->
+  <section class="wrap stat">
+    <div class="seclabel c-red rev" style="justify-content:center"><span class="ln"></span> Круглый стол</div>
+    <div class="big rev">95%</div>
+    <p class="cap rev">компаний, пытавшихся внедрить ИИ, не получили от него никакой пользы. В&nbsp;результате проекты застревают на стадии пилота.</p>
+    <p class="cap rev" style="margin-top:18px">Вместе с&nbsp;экспертами ведущих компаний обсудим «грабли» ИИ-проектов и&nbsp;подходы, позволяющие не&nbsp;только добиться ввода ИИ-систем в&nbsp;продуктивную эксплуатацию, но&nbsp;и&nbsp;масштабировать их на всю организацию.</p>
+    <div class="rt rev"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6f9bff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:8px"><path d="M20 6 9 17l-5-5"/></svg>Обязательно посетите круглый стол «Как вывести ИИ за рамки пилота»</div>
+  </section>
+
+  <!-- ===================== КОГО ПРИГЛАШАЕМ ===================== -->
+  <section class="wrap">
+    <div class="seclabel c-blue rev"><span class="ln"></span> Кого приглашаем в первую очередь</div>
+    <div class="aud rev">
+      <div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Руководителей компаний и бизнес-направлений</span></div>
+      <div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3"/></svg><span>Директоров по стратегиям и инновациям</span></div>
+      <div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg><span>Директоров по развитию бизнеса</span></div>
+      <div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span>Лидеров цифровой трансформации</span></div>
+      <div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg><span>ИТ-руководителей и директоров по данным</span></div>
+      <div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11H3v10h6zM21 3h-6v18h6zM15 9H9v12h6z"/></svg><span>Бизнес-аналитиков и бизнес-консультантов</span></div>
+      <div class="it"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><span>Исследователей данных и аналитиков данных</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== КАЛЕНДАРЬ ===================== -->
+  <section class="wrap" id="cal">
+    <div class="seclabel c-red rev"><span class="ln"></span> Забронируйте в календаре</div>
+    <div class="calwrap rev">
+      <div class="calcard">
+        <div class="mon">Октябрь 2026</div>
+        <div class="cgrid">
+          <div class="dow">Пн</div><div class="dow">Вт</div><div class="dow">Ср</div><div class="dow">Чт</div><div class="dow">Пт</div><div class="dow">Сб</div><div class="dow we">Вс</div>
+          <div class="d"></div><div class="d"></div><div class="d"></div><div class="d">1</div><div class="d">2</div><div class="d">3</div><div class="d we">4</div>
+          <div class="d">5</div><div class="d">6</div><div class="d">7</div><div class="d">8</div><div class="d">9</div><div class="d">10</div><div class="d we">11</div>
+          <div class="d">12</div><div class="d">13</div><div class="d mark">14</div><div class="d">15</div><div class="d">16</div><div class="d">17</div><div class="d we">18</div>
+          <div class="d">19</div><div class="d">20</div><div class="d">21</div><div class="d">22</div><div class="d">23</div><div class="d">24</div><div class="d we">25</div>
+          <div class="d">26</div><div class="d">27</div><div class="d">28</div><div class="d">29</div><div class="d">30</div><div class="d">31</div><div class="d"></div>
+        </div>
+      </div>
+      <div class="calside">
+        <h3>Не пропустите уникальный форум о практике ИИ в бизнесе</h3>
+        <p>Прокачайтесь новейшими идеями, лучшими практиками и экспертизой профессионалов!</p>
+        <div class="calbtns">
+          <a class="calbtn" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg>Google</a>
+          <a class="calbtn" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg>Outlook</a>
+          <a class="calbtn" href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="17" rx="2.5"/><path d="M16 2.5v4M8 2.5v4M3 10h18"/></svg>Яндекс</a>
+          <a class="calbtn ics" href="../email/invite.ics"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>Скачать .ics</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section class="wrap" id="reg">
+    <div class="final rev">
+      <h2>До встречи на Форуме!</h2>
+      <p>Запланируйте участие в форуме уже сегодня, чтобы узнать самое важное и ценное о применении ИИ в&nbsp;бизнес-моделях, процессах и&nbsp;операциях.</p>
+      <div class="cta-row" style="justify-content:center;margin-top:34px">
+        <a class="btn btn-primary" href="#">Регистрация <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ПОДПИСКА + КОНТАКТЫ ===================== -->
+  <section class="wrap">
+    <div class="sub2 rev">
+      <div>
+        <div style="font-size:15px;color:#cdd5ea;font-weight:300;margin-bottom:14px;max-width:46ch;line-height:1.6">Подпишитесь на каналы форума, чтобы быть в&nbsp;курсе последних новостей и&nbsp;дополнений в&nbsp;программе:</div>
+        <div style="display:flex;gap:10px">
+          <a class="chip" href="#">MAX</a>
+          <a class="chip" href="#">Telegram</a>
+        </div>
+      </div>
+      <div class="contacts">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9aa3bd" stroke-width="1.7" style="vertical-align:-3px;margin-right:6px"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><a href="mailto:conf@osp.ru">conf@osp.ru</a></span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9aa3bd" stroke-width="1.7" style="vertical-align:-3px;margin-right:6px"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+74997031854">+7 (499) 703 18 54</a></span>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="fbrand">
+    <img src="https://yokubjanovichh.github.io/ip2026-email-test/img/logo-mark.png" alt="Интеллектуальное предприятие 2026">
+    <span class="bt">Интеллектуальное предприятие <b>2026</b></span>
+  </div>
+  <p>Вы получили это письмо, потому что являетесь подписчиком информационных продуктов<br>ООО «Издательство «Открытые системы».</p>
+  <p style="margin-top:12px"><a href="#">Пользовательское соглашение</a> &nbsp;·&nbsp; <a href="#">Политика обработки персональных данных</a> &nbsp;·&nbsp; <a href="#">Отписаться от рассылки</a></p>
+</footer>
+
+<script>
+  const obs=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}})},{threshold:.14});
+  document.querySelectorAll('.rev').forEach((el,i)=>{el.style.transitionDelay=(i%4*0.07)+'s';obs.observe(el);});
+</script>
+</body>
+</html>
