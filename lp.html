@@ -153,6 +153,12 @@
 
   /* ============ footer ============ */
   footer{border-top:1px solid var(--line);padding:44px 0 56px;}
+  .socials{display:flex;gap:10px;margin-top:14px;}
+  .soc{width:40px;height:40px;border-radius:11px;background:var(--bg);border:1px solid var(--line);display:grid;place-items:center;transition:.25s;}
+  .soc:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 8px 20px -8px rgba(47,107,255,.28);}
+  .soc svg{width:19px;height:19px;fill:var(--soft);transition:.25s;}
+  .soc:hover svg{fill:var(--blue);}
+  .soc.max:hover svg{fill:#7b3fe4;}
   .foot-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;align-items:flex-start;}
   .foot-contacts{display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--soft);}
   .foot-contacts a{color:var(--ink);font-weight:500;}
@@ -300,6 +306,10 @@
       <div class="foot-contacts">
         <a href="mailto:conf@osp.ru">conf@osp.ru</a>
         <a href="tel:+74997031854">+7 (499) 703 18 54</a>
+        <div class="socials">
+          <a href="https://t.me/osp_ru" target="_blank" rel="noopener" class="soc tg" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
+          <a href="https://max.ru/channel_osp" target="_blank" rel="noopener" class="soc max" aria-label="MAX"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v13c0 1.1.9 2 2 2h4v3l4-3h8c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></a>
+        </div>
       </div>
       <div class="foot-legal">
         © ООО «Издательство «Открытые системы».<br>
